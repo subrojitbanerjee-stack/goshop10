@@ -1,0 +1,124 @@
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Premium Collection 2026</h1>
+    <p>Discover the latest trends at unbeatable prices</p>
+    <button class="shop-btn" onclick="scrollToProducts()">Shop Now</button>
+  </div>
+</section>
+<!-- PRODUCTS -->
+<section id="products" class="product-carousel">
+  <h2>Featured Products</h2>
+  <div class="carousel-track" id="product-list"></div>
+</section>
+<!-- CART ICON -->
+<div class="cart-icon" onclick="toggleCart()">
+  🛒 <span id="cart-count">0</span>
+</div>
+<!-- CART DRAWER -->
+<div id="cart-drawer" class="drawer">
+  <div class="drawer-content">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <hr>
+    <button onclick="sendOrder()" class="send-btn">Send Order via Email</button>
+    <button onclick="toggleCart()" class="close-btn">Close</button>
+  </div>
+</div>
+.hero {
+  height: 90vh;
+  background: linear-gradient(to right, #111, #333);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.shop-btn {
+  padding: 12px 25px;
+  background: gold;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background: orange;
+}
+
+.product-carousel {
+  padding: 40px;
+  text-align: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.cart-icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: black;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.drawer {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background: white;
+  transition: 0.4s;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+}
+
+.drawer.active {
+  right: 0;
+}
+
+.drawer-content {
+  padding: 20px;
+}
+
+.send-btn {
+  background: green;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+}
+
+.close-btn {
+  background: red;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+  border: none;
+}
+function scrollToProducts(){
+  document.getElementById("products").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function toggleCart(){
+  document.getElementById("cart-drawer").classList.toggle("active");
+}
